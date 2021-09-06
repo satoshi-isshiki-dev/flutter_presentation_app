@@ -5,7 +5,7 @@ import '/domain/entity/entities.dart';
 import '/screens/post_details_page/view_model/post_details_view_model.dart';
 
 class PostCommentsBuilder extends StatelessWidget {
-  final int? postId;
+  final int postId;
   const PostCommentsBuilder({Key? key, required this.postId}) : super(key: key);
 
   @override
@@ -64,10 +64,6 @@ class CommentsListBuilder extends StatelessWidget {
             ),
           ),
         );
-        // return ListTile(
-        //   title: Text('${comments[index].name}'),
-        //   subtitle: Text(comments[index].body),
-        // );
       },
     );
   }
@@ -76,7 +72,7 @@ class CommentsListBuilder extends StatelessWidget {
 class _LoadCommentsButton extends StatelessWidget {
   const _LoadCommentsButton({Key? key, required this.postId}) : super(key: key);
 
-  final int? postId;
+  final int postId;
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +83,7 @@ class _LoadCommentsButton extends StatelessWidget {
             ? const CircularProgressIndicator()
             : const Text('Загрузить комментарии'),
         onPressed: () {
-          context.read<PostDetailsViewModel>().fetchComments(postId ?? 1);
+          context.read<PostDetailsViewModel>().fetchComments(postId);
         },
       ),
     );

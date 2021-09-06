@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentation_app/screens/post_details_page/view_model/post_details_view_model.dart';
-
-import 'package:flutter_presentation_app/screens/screens.dart';
-import 'package:flutter_presentation_app/domain/entity/entities.dart';
 import 'package:provider/provider.dart';
+
+import '/screens/post_details_page/view_model/post_details_view_model.dart';
+import '/screens/screens.dart';
+import '/domain/entity/entities.dart';
 
 abstract class MainNavigationRouteNames {
   static const users = 'users';
@@ -49,7 +49,8 @@ class MainNavigation {
 
   MaterialPageRoute<Object> toPostDetailsRoute(RouteSettings settings) {
     final arguments = settings.arguments;
-    final post = arguments is Post ? arguments : null;
+    // final post = arguments is Post ? arguments : null;
+    final post = arguments as Post;
     return MaterialPageRoute(
       builder: (context) => ChangeNotifierProvider(
           create: (context) => PostDetailsViewModel(),
@@ -59,7 +60,8 @@ class MainNavigation {
 
   MaterialPageRoute<Object> toPostListRoute(RouteSettings settings) {
     final arguments = settings.arguments;
-    final List<Post> posts = arguments is List<Post> ? arguments : [];
+    // final List<Post> posts = arguments is List<Post> ? arguments : [];
+    final List<Post> posts = arguments as List<Post>;
     return MaterialPageRoute(
       builder: (context) => PostListPage(posts: posts),
     );

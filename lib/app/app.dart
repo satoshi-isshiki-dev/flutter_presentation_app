@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentation_app/app/app_model.dart';
-import 'package:flutter_presentation_app/navigation/main_navigation.dart';
-import 'package:flutter_presentation_app/ui/theme/app_theme.dart';
 import 'package:provider/provider.dart';
+
+import '/navigation/main_navigation.dart';
+import '/ui/theme/app_theme.dart';
+import '/app/app_model.dart';
 
 class PseudoApp extends StatelessWidget {
   static final mainNavigation = MainNavigation();

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentation_app/ui/shared_widgets/error_message_widget.dart';
 
 import '/domain/api_client/api_client.dart';
 import '/domain/entity/album.dart';
 import '/domain/entity/photo.dart';
 import '/screens/album_details_page/widgets/image_slider_widget.dart';
+import '/ui/shared_widgets/error_message_widget.dart';
 
 class AlbumDetailsPage extends StatelessWidget {
   final Album album;
@@ -39,7 +39,7 @@ class PhotoBuilder extends StatelessWidget {
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.none:
-              return const Text('Пусто это не густо ...');
+              return const Text('Пусто это не густо...');
             case ConnectionState.waiting:
               return const Center(child: CircularProgressIndicator());
             default:

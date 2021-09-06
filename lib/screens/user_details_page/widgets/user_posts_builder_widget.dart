@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentation_app/ui/shared_widgets/error_message_widget.dart';
 
 import '/domain/api_client/api_client.dart';
 import '/domain/entity/post.dart';
 import '/navigation/main_navigation.dart';
+import '/ui/shared_widgets/error_message_widget.dart';
 
 class UserPostsBuilder extends StatelessWidget {
   final int userId;

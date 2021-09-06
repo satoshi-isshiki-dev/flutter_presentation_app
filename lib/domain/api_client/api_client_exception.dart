@@ -1,11 +1,3 @@
-// enum ApiClientExceptionType { network, all }
-
-// class ApiClientException implements Exception {
-//   final ApiClientExceptionType type;
-
-//   ApiClientException(this.type);
-// }
-
 class CustomException implements Exception {
   final String? _prefix;
   final String? _message;

@@ -7,7 +7,7 @@ class Error404 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Не верный Route'),
+        title: const Text('Такого экрана нет!'),
       ),
       body: const Center(child: Text('404')),
     );

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentation_app/app/app_model.dart';
-
-import 'package:flutter_presentation_app/domain/api_client/api_client.dart';
-import 'package:flutter_presentation_app/domain/entity/user.dart';
-import 'package:flutter_presentation_app/navigation/main_navigation.dart';
-import 'package:flutter_presentation_app/ui/shared_widgets/error_message_widget.dart';
 import 'package:provider/provider.dart';
+
+import '/app/app_model.dart';
+import '/domain/api_client/api_client.dart';
+import '/domain/entity/user.dart';
+import '/navigation/main_navigation.dart';
+import '/ui/shared_widgets/error_message_widget.dart';
 
 class ListUserPage extends StatefulWidget {
   const ListUserPage({
@@ -71,7 +71,6 @@ class _ListUserPageState extends State<ListUserPage> {
                     errorMessage: snapshot.error.toString(),
                   ),
                 );
-                // return Text('Error: ${snapshot.error}');
               } else {
                 final List<User> users = snapshot.data;
                 return Column(
@@ -152,7 +151,6 @@ class _ListUserPageState extends State<ListUserPage> {
             // ? Colors.[index * 100 % 1000 + 100]
             ? null
             : Colors.amber[index * 100 % 1000],
-        // color: Colors.amber[index * 50 % 1000],
         elevation: 5.0,
         child: Center(
           child: ListTile(

@@ -1,13 +1,11 @@
-// ignore_for_file: avoid_print
-
-import 'package:flutter_presentation_app/domain/entity/base_entity_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_presentation_app/domain/api_client/api_client_exception.dart';
-import 'package:flutter_presentation_app/domain/services/local_storage_service.dart';
-import 'package:flutter_presentation_app/domain/entity/entities.dart';
+import '/domain/entity/base_entity_model.dart';
+import '/domain/api_client/api_client_exception.dart';
+import '/domain/services/local_storage_service.dart';
+import '/domain/entity/entities.dart';
 
 class ApiClient {
   static const _host = 'https://jsonplaceholder.typicode.com';
@@ -16,7 +14,6 @@ class ApiClient {
   static ApiClient? _instance;
 
   ApiClient._() {
-    print('<- ApiClient called');
     localStorageManager = SharedPreferencesStorage.instance();
   }
 
@@ -54,7 +51,6 @@ class ApiClient {
 
     final localData = await _getLocalStorageData(localStorageKey);
     if (localData != null && localData.isNotEmpty) {
-      print('Data from -> LocalStorage');
       return _jsonParser<T>(localData, parser);
     }
 
@@ -96,7 +92,6 @@ class ApiClient {
 
       String resultData = jsonEncode(entity.toJson());
       // String resultData = response.body;
-      print(resultData);
 
       if (isCaching == true) {
         resultData = await updateLocalStorageData(localStorageKey, resultData);
@@ -112,7 +107,6 @@ class ApiClient {
   /* -------------------------------------------------------------------------- */
   // todo Переделать (скорей всего через дата-классы)
   //* Здесь немного "дичи" на скорую руку, обновление строки путем конкатенации
-  //* Метод "на соплях"
   Future<String> updateLocalStorageData(
       String localStorageKey, String response) async {
     final localData = await _getLocalStorageData(localStorageKey);
@@ -143,9 +137,9 @@ class ApiClient {
     switch (response.statusCode) {
       case 200:
       case 201:
-        if (isCaching == true)
+        if (isCaching == true) {
           await _saveLocalStorageData(localStorageKey, resultData);
-        print('Data from -> Network');
+        }
         return _jsonParser<T>(resultData, parser);
       case 400:
         throw BadRequestException(resultData.toString());

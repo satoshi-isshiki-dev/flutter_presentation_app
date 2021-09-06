@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_presentation_app/domain/entity/album.dart';
-import 'package:flutter_presentation_app/navigation/main_navigation.dart';
+
+import '/navigation/main_navigation.dart';
+import '/domain/entity/album.dart';
 
 class AlbumListPage extends StatelessWidget {
   final List<Album> albums;
