@@ -22,7 +22,7 @@ class ApiClient {
     return _instance!;
   }
 
-  // ! Wotking with SharedPreferences data
+  // ! Working with SharedPreferences data
   /* -------------------------------------------------------------------------- */
   Future<void> _removeLocalStorageData(String key) async =>
       await localStorageManager.removeData(key);
